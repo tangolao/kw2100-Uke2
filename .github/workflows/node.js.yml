@@ -24,6 +24,11 @@ jobs:
       - run:
           npm test
           # Most of the file is unchanged
+      - run: npm run build
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+      - uses: actions/deploy-pages@v4
 
     permissions:
       id-token: write
